@@ -30,6 +30,9 @@ function clearDisplay() {
     expression = '';
     display.value = '';
 }
+function deletlast() {
+    display.value = expression.slice(0, -1);
+}
 
 function calculate() {
     try {
