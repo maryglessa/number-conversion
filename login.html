@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   <title>Login Form</title>
   <style>
     body {
@@ -163,22 +164,36 @@
       const password = document.getElementById('password').value;
 
       if (users[username] && users[username].password === password) {
-        alert('Login successful!');
+        swal({
+              title: "Success!",
+               text: "you can log in now!",
+               icon: "success",
+             });
+      
         window.open('calculator.html'); // Open the calculator.html page
       } else {
-        alert('Incorrect username or password. Please try again.');
+        swal({
+              title: "Oopx!",
+               text: "incorrect username or password. please try again",
+               icon: "error",
+             });
       }
     }
 
     function signup() {
       const newUsername = document.getElementById('newUsername').value;
       const newPassword = document.getElementById('newPassword').value;
-
       if (users[newUsername]) {
-        alert('Username already exists. Please choose a different one.');
+        swal({
+               text: "Username already exists, Please choose a different one."
+             });
       } else {
         users[newUsername] = { password: newPassword };
-        alert('Signup successful! Now you can log in.');
+        swal({
+              title: "Success!",
+               text: "you can log in now!",
+               icon: "success",
+             });
         showLoginForm();
       }
     }
@@ -219,7 +234,10 @@
       if (users[username]) {
         alert('Your password is: ' + users[username].password);
       } else {
-        alert('Username not found. Please sign up.');
+        swal("Username not found. Please sign up.");
+        swal({
+               text:"Username not found. Please sign up."
+             });
       }
     }
   </script>
