@@ -7,9 +7,17 @@
     <title>Number Conversion</title>
 </head>
 <body>
-    <header>NUMBER CONVERSION</header>
+    
+    <div class="container">
+        <div class="text">
+            
+           <button type="button" class="btn-out"><a href="index.html">Sign Out</a></button>
+        </div>
+      </div>  
+        <h1>NUMBER CONVERSION</h1>
     <div class="calculator">
-        <input type="text" id="display" disabled >
+        
+        <input type="text" id="display" disabled>
         <div class="buttons">
             <!-- Modify the existing number buttons to disable based on the mode -->
             <button onclick="appendToDisplay('1')" id="btn-1" disabled>1</button>
@@ -33,9 +41,11 @@
             <button onclick="appendToDisplay('E')" id="btn-E" disabled>E</button>
             <button onclick="clearDisplay()">C</button>
             <button onclick="appendToDisplay('F')" id="btn-F" disabled>F</button>
+            <button onclick="deletlast()">del</button>
             <button onclick="calculate()">=</button>
         </div>
     </div>
+
     <script src="numberconversion.js"></script>
 </body>
 
