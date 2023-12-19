@@ -23,15 +23,16 @@ function setMode(newMode) {
 
 function appendToDisplay(value) {
     expression += value;
-    display.value = expression;
+    display.innerHTML = expression;
 }
 
 function clearDisplay() {
     expression = '';
-    display.value = '';
+    display.innerHTML = '';
 }
 function deletlast() {
-    display.value = expression.slice(0, -1);
+    expression = expression.slice(0, -1);
+    display.value = expression;
 }
 
 function calculate() {
@@ -48,9 +49,9 @@ function calculate() {
             result = parseInt(expression, 16);
         }
 
-        display.value = result.toString(16).toUpperCase(); // Display result in hexadecimal
+        display.innerHTML = result.toString(16).toUpperCase(); // Display result in hexadecimal
     } catch (error) {
-        display.value = 'Error';
+        display.innerHTML = 'Error';
     }
 }
 
@@ -74,18 +75,18 @@ function calculate() {
         let result;
         if (mode === 'binary') {
             result = parseInt(expression, 2);
-            display.value = `HEX: ${result.toString(16).toUpperCase()}\n\n DEC: ${result.toString(10)}\n OCT: ${result.toString(8)}\n `;
+            display.innerHTML = "HEX: " + result.toString(16) + "<br>DEC: " + result.toString(10) + "<br>OCT: " + result.toString(8);
         } else if (mode === 'decimal') {
             result = parseInt(expression, 10);
-            display.value = `HEX: ${result.toString(16).toUpperCase()}\n\n OCT: ${result.toString(8)}\nBIN: ${result.toString(2)} \n`;
+            display.innerHTML = "HEX: " + result.toString(16) + "<br>OCT: " + result.toString(8) + "<br>BIN: " + result.toString(2);
         } else if (mode === 'octal') {
             result = parseInt(expression, 8);
-            display.value = `HEX: ${result.toString(16).toUpperCase()}\nDEC: ${result.toString(10)}\n\nBIN: ${result.toString(2)} \n`;
+            display.innerHTML = "HEX: " + result.toString(16) + "<br>DEC: " + result.toString(10) + "<br>BIN: " + result.toString(2);
         } else if (mode === 'hexadecimal') {
             result = parseInt(expression, 16);
-            display.value = `DEC: ${result.toString(10)}\nOCT: ${result.toString(8)}\nBIN: ${result.toString(2)} \n`;
+            display.innerHTML = "DEC: " + result.toString(10) + "<br>OCT: " + result.toString(8) + "<br>BIN: " + result.toString(2);
         }
     } catch (error) {
-        display.value = 'Error';
+        display.innerHTML = 'Error';
     }
 }
