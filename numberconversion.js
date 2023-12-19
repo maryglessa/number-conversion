@@ -32,7 +32,7 @@ function clearDisplay() {
 }
 function deletlast() {
     expression = expression.slice(0, -1);
-    display.value = expression;
+    display.innerHTML = expression;
 }
 
 function calculate() {
